@@ -17,10 +17,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 
+                    url: 'https://github.com/MaximRock/DevOps.git'
             }
         }
     }
 }
-
-12
