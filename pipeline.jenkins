@@ -1,0 +1,26 @@
+pipeline {
+    agent { label 'any'}
+
+    stages {
+        stage('docker version') {
+            steps {
+                sh "echo $USER"
+                sh "docker"
+            }
+        }
+        stage('Delete workspase') {
+            steps {
+                echo 'Deleting workspase'
+                deleteDir()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 
+            }
+        }
+    }
+}
+
+12

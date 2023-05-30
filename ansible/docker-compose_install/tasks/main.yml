@@ -1,0 +1,8 @@
+---
+# tasks file for docker-compose_install
+- name: Install Docker-Compose
+  ansible.builtin.get_url:
+    url: https://github.com/docker/compose/releases/download/v{{ ver_docker_compose}}/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture | lower}}
+    dest: /usr/bin/docker-compose
+    mode: 0755
+  

@@ -1,0 +1,3 @@
+---
+# defaults file for docker-compose_install
+ver_docker_compose: "2.15.1"

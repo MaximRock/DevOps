@@ -1,0 +1,13 @@
+---
+# handlers file for jenkins_docker
+  - name: Enable Chrony
+    ansible.builtin.service:
+      name: chrony
+      state: started
+      enabled: yes    
+
+  - name: Enable Jenkins
+    ansible.builtin.service:
+      name: jenkins
+      state: started
+      enabled: yes   
