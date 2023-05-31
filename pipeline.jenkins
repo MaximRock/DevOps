@@ -8,6 +8,7 @@ pipeline {
                 sh "docker"
             }
         }
+<<<<<<< HEAD
         stage('Delete workspace before build starts') {
             steps {
                 echo 'Deleting workspace'
@@ -20,11 +21,24 @@ pipeline {
                 deleteDir()
             }
         }
+=======
+
+>>>>>>> 3f2e8777a4932469e18fbb59f2ff9ddb0a1953de
         stage('Checkout') {
             steps {
                 git branch: 'master',
                     url: 'https://github.com/MaximRock/DevOps.git'
+                    
+                    sh 'pwd'
+                    sh 'ls -la'
             }
+        }
+        stage('Build docker image') {
+            steps{
+                dir('app') {
+                    sh 'docker build -t bakavets/jenkins-images:0.4 .'
+                }
+            }    
         }
     }
 }
