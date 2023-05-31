@@ -14,12 +14,6 @@ pipeline {
                 deleteDir()
             }
         }
-        stage('Delete workspase') {
-            steps {
-                echo 'Deleting workspase'
-                deleteDir()
-            }
-        }
         stage('Checkout') {
             steps {
                 git branch: 'master',
@@ -31,8 +25,8 @@ pipeline {
         }
         stage('Build docker image') {
             steps{
-                dir('app') {
-                    sh 'docker build -t bakavets/jenkins-images:0.4 .'
+                dir('test/app') {
+                    sh 'docker build -t test/app:v01 .'
                 }
             }    
         }

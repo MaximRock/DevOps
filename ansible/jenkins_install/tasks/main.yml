@@ -51,8 +51,10 @@
     update_cache: true
   notify: Enable Jenkins
 
-- name: Enable Jenkins
-    ansible.builtin.service:
-      name: jenkins
-      state: restarted
-      enabled: yes   
+- name: jenkins password
+  ansible.builtin.shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+  register: __unlock_jenkins
+
+- name: Print unlock jenkins
+  ansible.builtin.debug:
+    msg: "{{ __unlock_jenkins.stdout_lines }}"

@@ -43,3 +43,9 @@
     groups: docker
     append: true
 
+- name: Enable Jenkins
+  ansible.builtin.service:
+    name: jenkins
+    state: restarted
+    enabled: yes
+
