@@ -8,7 +8,6 @@ pipeline {
                 sh "docker"
             }
         }
-<<<<<<< HEAD
         stage('Delete workspace before build starts') {
             steps {
                 echo 'Deleting workspace'
@@ -21,9 +20,6 @@ pipeline {
                 deleteDir()
             }
         }
-=======
-
->>>>>>> 3f2e8777a4932469e18fbb59f2ff9ddb0a1953de
         stage('Checkout') {
             steps {
                 git branch: 'master',

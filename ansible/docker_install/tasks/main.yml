@@ -34,7 +34,6 @@
 - name: Add docker group Jenkins
   ansible.builtin.user:
     name: jenkins
-<<<<<<< HEAD
     group: docker
     append: true
 
@@ -43,8 +42,4 @@
     name: admin
     groups: docker
     append: true
-=======
-    groups: docker
-    append: yes
->>>>>>> 3f2e8777a4932469e18fbb59f2ff9ddb0a1953de
 
