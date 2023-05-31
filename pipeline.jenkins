@@ -1,11 +1,17 @@
 pipeline {
-    agent { label 'any'}
+    agent any
 
     stages {
         stage('docker version') {
             steps {
                 sh "echo $USER"
                 sh "docker"
+            }
+        }
+        stage('Delete workspace before build starts') {
+            steps {
+                echo 'Deleting workspace'
+                deleteDir()
             }
         }
         stage('Delete workspase') {
@@ -16,7 +22,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                     url: 'https://github.com/MaximRock/DevOps.git'
             }
         }
