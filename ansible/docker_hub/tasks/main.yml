@@ -4,6 +4,13 @@
   ansible.builtin.pip:
     name: docker-py
 
+- name: Build image using cache source
+  community.docker.docker_image:
+    name: testmaxdev/jenkins-image:v02
+    build:
+      path: /var/lib/jenkins/workspace/test/app
+    source: build    
+
 - name: Log into DockerHub
   community.docker.docker_login:
     username: testmaxdev
@@ -13,6 +20,6 @@
   community.docker.docker_image:
     name: testmaxdev/jenkins-image
     repository: testmaxdev/jenkins-image
-    tag: v01
+    tag: v02
     push: true
     source: local    
