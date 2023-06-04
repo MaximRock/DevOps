@@ -31,21 +31,16 @@
     - containerd.io
     - docker-compose-plugin
     
-- name: Add docker group Jenkins
-  ansible.builtin.user:
-    name: jenkins
-    group: docker
-    append: true
+# - name: Add docker group Jenkins
+#   ansible.builtin.user:
+#     name: jenkins
+#     group: docker
+#     append: true
 
-- name: Add docker group Jenkins
-  ansible.builtin.user:
-    name: admin
-    groups: docker
-    append: true
+# - name: Add docker group Jenkins
+#   ansible.builtin.user:
+#     name: admin
+#     groups: docker
+#     append: true
 
-- name: Enable Jenkins
-  ansible.builtin.service:
-    name: jenkins
-    state: restarted
-    enabled: yes
 

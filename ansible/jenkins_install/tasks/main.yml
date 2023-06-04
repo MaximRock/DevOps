@@ -58,6 +58,17 @@
   ansible.builtin.debug:
     msg: "{{ __unlock_jenkins.stdout_lines }}"
 
+- name: Add groupdocker user jenkins
+  ansible.builtin.shell: usermod -aG docker jenkins    
+
+- name: Enable Jenkins
+  ansible.builtin.service:
+    name: jenkins
+    state: restarted
+    enabled: yes
+
+
+
 
 
 

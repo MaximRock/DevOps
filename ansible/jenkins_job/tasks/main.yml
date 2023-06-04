@@ -1,7 +1,7 @@
 ---
 
-- name: jenkins password
-  ansible.builtin.shell: usermod -aG docker jenkins
+# - name: Add groupdocker user jenkins
+#   ansible.builtin.shell: usermod -aG docker jenkins
 
 - name: Install required system packages
   ansible.builtin.apt:
@@ -14,12 +14,22 @@
   ansible.builtin.pip:
     name: python-jenkins >= 0.4.12
 
+- name: Install plugin
+  community.general.jenkins_plugin:
+    name: ansible
+
+- name: Enable Jenkins
+  ansible.builtin.service:
+    name: jenkins
+    state: restarted
+    enabled: yes       
+
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/test.xml') }}"
     name: test
     password: admin
-    url: http://localhost:8080
+    url: "http://{{ ip_server_lenkins }}:8080"
     user: admin
 
 - name: Create a jenkins build using basic authentication
@@ -28,4 +38,4 @@
     state: present
     user: admin
     password: admin
-    url: http://localhost:8080
+    url: "http://{{ ip_server_lenkins }}:8080"
