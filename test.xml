@@ -40,7 +40,7 @@
         stage(&apos;Build docker image&apos;) {
             steps{
                 dir(&apos;app&apos;) {
-                    sh &apos;docker build -t test/app:v01 .&apos;
+                    sh &apos;docker build -t testmaxdev/jenkins-image:v01 .&apos;
                 }
             }    
         }

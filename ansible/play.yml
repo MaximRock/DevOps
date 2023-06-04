@@ -4,17 +4,17 @@
     - test
   become: yes    
   roles:
-    - role: docker_install
-      tags: docker install
+    # - role: docker_install
+    # tags: docker install
 
-    - role: docker-compose_install
-      tags: docker compose install
+    #- role: docker-compose_install
+    # tags: docker compose install
 
-    - role: jenkins_install
-      tags: jenkins_install
+    #- role: jenkins_install
+    # tags: jenkins_install
 
-    - role: jenkins_job
-      tags: jenkins_job
+    #- role: jenkins_job
+    # tags: jenkins_job
 
     - role: docker_hub
       tags: docker_hub

@@ -31,3 +31,24 @@ pipeline {
         }
     }
 }
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('docker version') {
+            steps {
+                sh "echo $USER"
+            }
+        }
+        stage('SCM ansible') {
+            steps {
+                dir('ansible'){
+                    ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts', playbook: 'play.yml'
+                }    
+            }
+        }
+    }
+}
