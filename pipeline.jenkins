@@ -93,3 +93,47 @@ pipeline {
         }
     }
 }
+
+
+pipeline {
+    agent any
+    environment {
+        ANSIBLE_PRIVATE_KEY=credentials('private-key')
+    }
+    stages {
+        stage('ansible version') {
+            steps {
+                sh "ansible --version"
+            }
+        }
+        stage('Delete workspace before build starts') {
+            steps {
+                echo 'Deleting workspace'
+                deleteDir()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/MaximRock/DevOps.git'
+                    
+                    sh 'pwd'
+                    sh 'ls -la'
+            }
+        }
+        stage('ansible-requirements'){
+            steps {
+                dir('ansible'){
+                    sh 'ansible-galaxy collection install -r requirements.yml'
+                }
+            }
+        }
+        stage('ansible-playbook'){
+            steps {
+                dir('ansible'){
+                    sh 'ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY jenkins/play.yml'
+                }
+            }
+        }
+    }
+}
