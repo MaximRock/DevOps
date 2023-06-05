@@ -1,2 +1,3 @@
 [test]
-jenkins ansible_host=admin@158.160.104.27
+localhost
+#jenkins ansible_host=admin@158.160.104.27

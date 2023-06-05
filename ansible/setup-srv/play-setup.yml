@@ -1,0 +1,14 @@
+---
+- name: Install Jenkins Docker
+  hosts: 
+    - test
+  become: yes    
+  roles:
+    - role: docker_install
+      tags: docker install
+
+    - role: docker-compose_install
+      tags: docker compose install
+
+    - role: jenkins_install
+      tags: jenkins_install
