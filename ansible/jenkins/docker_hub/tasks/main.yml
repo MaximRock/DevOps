@@ -17,7 +17,7 @@
 
 - name: Build image using cache source
   community.docker.docker_image:
-    name: testmaxdev/jenkins-image:v03
+    name: testmaxdev/jenkins-image:v04
     build:
       path: /var/lib/jenkins/workspace/test/app
     source: build    
@@ -31,6 +31,6 @@
   community.docker.docker_image:
     name: testmaxdev/jenkins-image
     repository: testmaxdev/jenkins-image
-    tag: v03
+    tag: v04
     push: true
     source: local
