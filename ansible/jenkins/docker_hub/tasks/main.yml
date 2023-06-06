@@ -19,7 +19,7 @@
   community.docker.docker_image:
     name: testmaxdev/jenkins-image:v01
     build:
-      path: /var/lib/jenkins/workspace/test/app
+      path: /var/lib/jenkins/workspace/docker-hub/app
     source: build    
 
 - name: Log into DockerHub
