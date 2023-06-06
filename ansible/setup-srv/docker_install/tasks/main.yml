@@ -31,11 +31,7 @@
     - containerd.io
     - docker-compose-plugin
 
-- name: Install collection community.network
-  community.general.ansible_galaxy_install:
-    type: collection
-    name: community.general       
-    
+
 # - name: Add docker group Jenkins
 #   ansible.builtin.user:
 #     name: jenkins
