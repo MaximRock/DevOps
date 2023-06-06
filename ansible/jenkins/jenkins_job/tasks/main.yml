@@ -14,11 +14,6 @@
   ansible.builtin.pip:
     name: python-jenkins >= 0.4.12
 
-- name: Install collection community.network
-  community.general.ansible_galaxy_install:
-    type: collection
-    name: community.general    
-
 - name: Install plugin
   community.general.jenkins_plugin:
     name: ansible
