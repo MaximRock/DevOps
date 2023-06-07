@@ -1,0 +1,8 @@
+---
+- name: Install Jenkins Docker
+  hosts: 
+    - test
+  become: yes    
+  roles:
+    - role: docker_hub
+      tags: docker_hub

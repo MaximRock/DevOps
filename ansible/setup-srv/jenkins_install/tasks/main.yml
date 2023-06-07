@@ -59,7 +59,12 @@
     msg: "{{ __unlock_jenkins.stdout_lines }}"
 
 - name: Add groupdocker user jenkins
-  ansible.builtin.shell: usermod -aG docker jenkins    
+  ansible.builtin.shell: usermod -aG docker jenkins
+
+- name: Install collection community.network
+  community.general.ansible_galaxy_install:
+    type: collection
+    name: community.general      
 
 - name: Enable Jenkins
   ansible.builtin.service:
