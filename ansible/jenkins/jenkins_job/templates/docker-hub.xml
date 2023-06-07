@@ -49,7 +49,7 @@
         stage(&apos;ansible-playbook&apos;){
             steps {
                 dir(&apos;ansible&apos;){
-                    sh &apos;ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY jenkins/docker_hub/play-docker-hub.yml&apos;
+                    sh &apos;ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY jenkins/play-docker-hub.yml&apos;
                 }
             }
         }
